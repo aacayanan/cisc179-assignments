@@ -5,12 +5,16 @@ class task_A():
         self.max = 100
         self.current_guess = (self.min + self.max) / 2
         self.previous_guess = 1337
-        print("Think of a number between 1 and 100!")
-
     def increment_guess_count(self):
         self.guess_count += 1
 
+    def change_interval(self, new_min, new_max):
+        self.min = new_min
+        self.max = new_max
+        self.current_guess = (self.min + self.max) / 2
+
     def play_game(self):
+        print(f"Think of a number between {self.min} and {self.max}!")
         user_answer = ""
         while user_answer != '=':
             if int(self.current_guess) == int(self.previous_guess):
@@ -42,4 +46,5 @@ class task_A():
 
 
 game = task_A()
+# game.change_interval(-10, 10)     # to change the interval (0-100 is default)
 game.play_game()
