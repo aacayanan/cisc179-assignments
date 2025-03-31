@@ -45,6 +45,6 @@ class task_A():
         print(f"It took {self.guess_count} guesses!")
 
 
-game = task_A()
+# game = task_A()
 # game.change_interval(-10, 10)     # to change the interval (0-100 is default)
-game.play_game()
+# game.play_game()
