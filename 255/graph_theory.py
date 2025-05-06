@@ -3,7 +3,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import random
 from collections import defaultdict
-matplotlib.use('TkAgg')  # or 'QtAgg', 'Agg', etc., depending on your system
+matplotlib.use('TkAgg')  # or 'QtAgg', 'Agg', 'MacOSX', 'WebAgg', etc., depending on your system
 
 # create a graph
 G = nx.Graph()
@@ -49,9 +49,9 @@ print("Odd degree nodes:", len(odd_nodes))
 
 # check if the graph has an Euler circuit or path
 if 0 < len(odd_nodes) <= 2:
-    print(f"There are {len(odd_nodes)} odd degree nodes, so the graph has a Euler path.")
+    print(f"There are {len(odd_nodes)} odd degree nodes, so the graph has an Euler path.")
 elif len(odd_nodes) == 0:
-    print("There are no odd degree nodes, so the graph has a Euler circuit.")
+    print("There are no odd degree nodes, so the graph has an Euler circuit.")
 else:
     print(f"There are {len(odd_nodes)} odd degree nodes, so the graph has no Euler path or circuit.")
 
