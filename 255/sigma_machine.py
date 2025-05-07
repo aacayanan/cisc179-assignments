@@ -55,7 +55,7 @@ original_word = ""
 shifted_word = ""
 print("Press backspace to exit.")
 while True:
-    encrypt_mode = True
+    encrypt_mode = False
     # check if the user wants to exit
     if keyboard.read_key() == 'backspace':
         break
@@ -84,17 +84,18 @@ while True:
         right_shift_index = right_shift.index(right_shift_letter)   # get the index of the letter in the right shift
         left_shift_letter = left_shift[right_shift_index]   # get the letter from the left shift
         left_shift_index = left_shift.index(left_shift_letter)  # get the index of the letter in the left shift
-        keylamp_letter = keylamp[left_shift_index]  # get the letter from the keylamp
+        keylamp_letter = keylamp[keylamp.index(left_shift_letter)]  # get the letter from the keylamp
         shifted_word += keylamp_letter  # add the letter to the shifted word
         print("Encrypted so far:", shifted_word)
 
     else:
         # Decryption
         keylamp_index = keylamp.index(letter)
-        left_shift_letter = left_shift[keylamp_index]   # get the letter from the left shift
-        right_shift_index = left_shift.index(left_shift_letter) # get the index of the letter in the left shift
-        right_shift_letter = right_shift[right_shift_index] # get the letter from the right shift
-        plugboard_index = right_shift.index(right_shift_letter) # get the index of the letter in the right shift
-        original_letter = plugboard[plugboard_index]    # get the letter from the plugboard
-        shifted_word += original_letter # add the letter to the shifted word
+        left_shift_letter = keylamp[keylamp_index]  # this is the encrypted letter
+        left_shift_index = left_shift.index(left_shift_letter)  # find its position in left shift
+        right_shift_letter = right_shift[left_shift_index]  # use same index to get from right shift
+        right_shift_index = right_shift.index(right_shift_letter)  # find this letter's position in right shift
+        plugboard_letter = plugboard[right_shift_index]  # map back through plugboard
+        shifted_word += plugboard_letter  # append decrypted letter
         print("Decrypted so far:", shifted_word)
+
