@@ -1,0 +1,4 @@
+Processed in ./modified\grayblur_Picture1.jpg
+Processed in ./modified\grayblur_Picture2.jpg
+Processed in ./modified\grayblur_Picture3.jpg
+Processed in ./modified\grayblur_Picture4.jpg

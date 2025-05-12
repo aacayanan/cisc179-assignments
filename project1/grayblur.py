@@ -26,7 +26,13 @@ def grayblur(image_path):
     filename = os.path.basename(image_path)
     grayblur_image_path = os.path.join(output_dir, f"grayblur_{filename}")
     cv2.imwrite(grayblur_image_path, grayblur_image)
+    return grayblur_image_path
 
 
 for image_path in images:
     grayblur(image_path)
+
+with open("READ ME.txt", "w") as file:
+    for image_path in images:
+        processed_path = grayblur(image_path)
+        file.write(f"Processed in {processed_path}\n")
